@@ -1,13 +1,12 @@
 ---
 date: '2019-12-07'
-title: 'Flutter Developer'
-company: 'Tacitpal'
-location: 'Ahmedabad, India'
-range: 'January - April 2020'
-url: ''
+title: 'Stajyer'
+company: 'Serim Yazılım'
+location: 'Bursa, Nilüfer'
+range: 'Eylül 2023'
+url: 'https://www.serim.com.tr'
 ---
 
-- Developed a cross - platform mobile app using Flutter and Dart for increasing productivity by creating an automated schedule for the users based on priority and time slot allotted to task.
-- Conducted day-to-day project coordination, planning, and implementation between a team of 5 Flutter Developers.
-- Application Integration using NodeJS RESTful service.
-- **Technology: NodeJS, Flutter, Dart**
+- Staj sürecimde jQuery, Bootstrap ve Ajax teknolojileriyle temel web geliştirme pratiği kazandıktan sonra React Native öğrenmeye başladım. Bu süreçte, QR kod okuyabilen ve kullanıcıların kişi bilgilerini rehbere kaydedebildiği bir telefon rehberi uygulaması geliştirdim.
+- Uygulama, kartvizit üzerindeki QR kodları okuyarak kişileri otomatik ekleyebilmekte; ayrıca kullanıcıların manuel kişi eklemesine de olanak tanımaktadır. Tüm veriler, cihaz üzerinde SQLite kullanılarak saklanmaktadır.
+- **Kullanılan teknolojiler: React Native, JavaScript, jQuery, Bootstrap, Ajax, SQLite, QR Code Scanner, REST API**

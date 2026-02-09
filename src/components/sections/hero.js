@@ -60,31 +60,22 @@ const Hero = () => {
 
   const one = <h1>Merhaba, ben</h1>;
   const two = <h2 className="big-heading">Merve Bilgin.</h2>;
-  const three = <h3 className="big-heading">Temiz ve ölçeklenebilir yazılımlar geliştiririm.</h3>;
+  const three = <h3 className="big-heading">Yazılım projelerinde aktif olarak kod yazıyorum.</h3>;
   const four = (
     <>
       <p>
-        I am an India based Data Engineer with a bachelors in Computer Science. I am passionate
-        about Data Science and Automation. I am also fascinated with Mathematics and wish to make a
-        career out of it someday. Currently, I’m focused on building data pipelines and automating
-        them at{' '}
-        <a
-          href="https://www.accenture.com/gr-en/about/consulting-index"
-          target="_blank"
-          rel="noreferrer">
-          Accenture
-        </a>
-        .
+        Balıkesir Üniversitesi Bilgisayar Mühendisliği mezunuyum. Canlı ortamda kullanılan web
+        uygulamalarında frontend geliştirici olarak görev aldım. Vue.js ve React ile admin panelleri
+        ve kullanıcı arayüzleri geliştirdim; kullanıcı bazlı yetkilendirme, kimlik doğrulama
+        akışları ve API entegrasyonları gibi iş kritik özellikler üzerinde çalıştım. Ayrıca React
+        Native ile mobil uygulama geliştirme ve freelance olarak kurumsal web sitesi teslim etme
+        deneyimine sahibim.
       </p>
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="mailto:desaiparth2000@gmail.com"
-      target="_blank"
-      rel="noreferrer">
-      Contact me
+    <a className="email-link" href="mailto:1mervebilgin@gmail.com" target="_blank" rel="noreferrer">
+      Benimle İletişime Geçin
     </a>
   );
 

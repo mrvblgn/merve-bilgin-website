@@ -1,13 +1,13 @@
 ---
 date: '2019-07-15'
-title: 'Backend Developer'
-company: 'Robocup'
-location: 'Ahmedabad, India'
-range: 'August - September 2019'
-url: 'https://technology.nirmauni.ac.in/news-events/robocup-2019/'
+title: 'Stajyer'
+company: 'Snapbytes'
+location: 'İstanbul, Ümraniye'
+range: 'Temmuz 2023'
+url: 'https://snapbytes.com'
 ---
 
-- Developed a Score Managing system for National Level Robocup event organized by Nirma University.
-- Implemented GUI user functions and components in Tkinter and integrated the front - end with SQLite database.
-- Features Included : Accept participant registrations, automated draws with seeding options, winners and losers advance to next round based on configuration, automated scheduling of matches based on team availability, live scores and results available for public viewing.
-- **Technology: Python, SQLite, Tkinter**
+- Atlassian University üzerinden Jira eğitimi aldıktan sonra, Jira Service Management kullanarak bir hizmet yönetimi projesi geliştirdim.
+- Bu proje kapsamında, Jira’nın bulut tabanlı özelliklerini kullanarak taleplerin sınıflandırılması, yönlendirilmesi ve takip edilmesi gibi süreçleri optimize ettim.
+- Süreçlerin daha verimli yürütülmesi için otomasyon kuralları ve servis yapılandırmaları oluşturarak stajımı başarıyla tamamladım.
+- **Kullanılan teknolojiler: Jira Service Management (Cloud), Jira Automation Rules, Workflow Configuration, SLA Management, Request Types, ITSM (Incident, Service Request, Queue Management)**

@@ -1,17 +1,21 @@
 ---
 date: '2022-01-14'
-title: 'Data Engineer'
-company: 'Accenture'
-location: 'Ahmedabad, India'
-range: 'January - May 2022'
-url: 'https://www.accenture.com/gr-en/about/consulting-index'
+title: 'Frontend Developer'
+company: 'Kodpilot'
+location: 'Bursa, Nilüfer'
+range: 'Haziran 2025 - Şubat 2026'
+url: 'https://kodpilot.com'
 ---
 
-- Helped with the digital transformation of <b><a href="https://www.boat-lifestyle.com/" target="_blank">BOAT</a></b> by working on their platform called ByteETL.
-- Built the encryption component for the platform using Scala and Spark which included 2 encoding functionalities : ENCRYPT and HASH.
-- Developed ETL pipelines for BOAT based on the pre-decided KPIs.
-- Created JSON wrappers for the encryption components.
-- Automated and triggered the pipelines to run at specific intervals using CronJob.
-- Wrote tests to ensure full coverage of the code.
-- **Technology: Python, Scala, Spark, Azure Datafactory**
-- [Certificate](https://drive.google.com/file/d/1b9ElekbpbHspyAq441eMRyumLYN5SZOY/view?usp=sharing)
+- Canlı ortamda kullanılan Vue.js tabanlı <b><a href="https://nettech.kodpilot.com/login" target="_blank">Nettech</a></b> admin panelinin frontend geliştirmesini üstlendim.
+- Admin kullanıcılar için yetki ve rol bazlı erişim kontrollerini uyguladım.
+- Kimlik doğrulama, dashboard ve yeniden kullanılabilir arayüz bileşenlerini tasarladım.
+- Pinia kullanarak global state yönetimini kurguladım.
+- Backend servislerle uçtan uca API entegrasyonlarını gerçekleştirdim.
+- Güvenli, ölçeklenebilir ve responsive bir arayüz sundum.
+- React Native ile geliştirilen mobil sipariş uygulamasının frontend geliştirmesini yaptım.
+- Login / register kullanıcı akışlarını oluşturdum.
+- Ürün menüsü, sepete ekleme ve sepet yönetimi işlemlerini geliştirdim.
+- Harita entegrasyonu ile lokasyon bazlı deneyim sağladım.
+- Tekrar kullanılabilir bileşenler ve düzenli state yönetimi kurguladım.
+- **Kullanılan teknolojiler: Vue.js, Vuetify, Pinia, Vue Router, CASL, TypeScript + TSX, React Native.**

@@ -1,41 +1,29 @@
 module.exports = {
-  email: 'desaiparth2000@gmail.com',
+  email: '1mervebilgin@gmail.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/pycoder2000',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/lone_Musk',
+      url: 'https://github.com/mrvblgn',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/parth-desai-2bb1b0160/',
+      url: 'https://www.linkedin.com/in/merve-bilgin-203b16213/',
     },
   ],
 
   navLinks: [
     {
-      name: 'About',
+      name: 'Hakkımda',
       url: '/#about',
     },
     {
-      name: 'Experience',
+      name: 'Deneyim',
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: 'Projeler',
       url: '/#projects',
-    },
-    {
-      name: 'Contact',
-      url: '/#contact',
-    },
-    {
-      name: 'Blog',
-      url: 'https://musing.vercel.app/',
     },
   ],
 

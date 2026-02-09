@@ -125,59 +125,62 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Python', 'Scala', 'Django', 'Flutter', 'C', 'Keras', 'Spark', 'SQL'];
+  const skills = [
+    'Vue.js',
+    'Next.js',
+    'React',
+    'React Native',
+    'Pinia',
+    'Redux',
+    'Restful API',
+    'PHP',
+    'Laravel',
+    'ASP.NET',
+    'Entity Framework',
+    'Katmanlı Mimari',
+    'Postman',
+    'MySQL',
+    'MS SQL',
+    'Unit Test',
+    'Git/Github',
+    'Jira',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <h2 className="numbered-heading">Hakkımda</h2>
 
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              I finished my bachelors from{' '}
-              <a href="https://nirmauni.ac.in/" target="_blank" rel="noreferrer">
-                Nirma University
+              2024 yılında{' '}
+              <a href="https://ceng.balikesir.edu.tr" target="_blank" rel="noreferrer">
+                Balıkesir Üniversitesi Bilgisayar Mühendisliği
               </a>{' '}
-              in 2022. I was introduced to Data Science in my 5<sup>th</sup> semester and have been
-              interested ever since. Besides studying and programming, I love participating in
-              debates, extempores or general discussions. On an off day you'll find me bundled up in
-              a corner reading something.
+              bölümünden mezun oldum. Lisans eğitimim süresince yazılım geliştirme temelleri üzerine
+              güçlü bir teorik altyapı edindim ve bu bilgileri proje bazlı çalışmalarla pratiğe
+              döktüm.
             </p>
 
             <p>
-              I am always looking to learn new things. I am currently working on a few projects
-              related to <b>Natural Language Processing</b> and <b>Machine Learning</b>. At the same
-              time I am actively on the lookout for remote internships which I can pursue in field
-              of Data Science.
+              Mezuniyetim sonrasında toplam 480 saatlik yoğun bir yazılım geliştirme eğitim
+              programına katıldım. Bu süreçte C#, ASP.NET Core ve MVC ile backend geliştirme, JWT
+              ile kimlik doğrulama gibi konularda pratik yaparak deneyim kazandım. Ayrıca React ve
+              TypeScript ile kullanıcı dostu arayüzler geliştirme becerisi edindim. Bu eğitim
+              sayesinde hem frontend hem de backend tarafında üretken projeler geliştirebilecek
+              seviyeye ulaştım.
             </p>
 
             <p>
-              I am a strong advocate for open source and I am always interested in working on new
-              projects with new people. Do check out my{' '}
-              <a
-                href="https://github.com/pycoder2000?tab=repositories"
-                target="_blank"
-                rel="noreferrer"
-              >
-                repositories
-              </a>{' '}
-              and feel free to reach out on{' '}
-              <a
-                href="https://api.whatsapp.com/send?phone=916358190818&text=hi"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Whatsapp
-              </a>{' '}
-              or{' '}
-              <a href="mailto:%20desaiparth2000@gmail.com" target="_blank" rel="noreferrer">
-                email
-              </a>{' '}
-              if you would like to collaborate on any project.
+              Canlı ortamda kullanılan yazılım projelerinde ekip içerisinde görev aldım. Bu
+              projelerde kullanıcı bazlı yetkilendirme, kimlik doğrulama akışları ve API
+              entegrasyonları gibi iş kritik alanlarda sorumluluk üstlendim. Bu deneyim sayesinde
+              üretim ortamında yazılım geliştirme, ekip içi iş akışları ve sürdürülebilir kod yazma
+              konularında pratik tecrübe kazandım.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Kullandığım teknolojiler:</p>
           </div>
 
           <ul className="skills-list">
