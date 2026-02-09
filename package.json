@@ -59,6 +59,7 @@
     "react-scroll-progress-bar": "^1.1.13",
     "react-transition-group": "^4.3.0",
     "scrollreveal": "^4.0.5",
+    "sharp": "^0.34.5",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {

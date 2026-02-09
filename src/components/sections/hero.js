@@ -58,9 +58,9 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Parth Desai.</h2>;
-  const three = <h3 className="big-heading">I design and code simple things.</h3>;
+  const one = <h1>Merhaba, ben</h1>;
+  const two = <h2 className="big-heading">Merve Bilgin.</h2>;
+  const three = <h3 className="big-heading">Temiz ve ölçeklenebilir yazılımlar geliştiririm.</h3>;
   const four = (
     <>
       <p>
@@ -71,8 +71,7 @@ const Hero = () => {
         <a
           href="https://www.accenture.com/gr-en/about/consulting-index"
           target="_blank"
-          rel="noreferrer"
-        >
+          rel="noreferrer">
           Accenture
         </a>
         .
@@ -84,8 +83,7 @@ const Hero = () => {
       className="email-link"
       href="mailto:desaiparth2000@gmail.com"
       target="_blank"
-      rel="noreferrer"
-    >
+      rel="noreferrer">
       Contact me
     </a>
   );
