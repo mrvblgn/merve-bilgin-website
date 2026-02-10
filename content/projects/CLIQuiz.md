@@ -1,15 +1,15 @@
 ---
 date: '2022-01-05'
-title: 'CLI Quiz'
-github: 'https://github.com/pycoder2000/CLI-Quiz'
-external: 'https://libraries.io/npm/cliquiz-millionaire'
+title: 'ExcavaWin'
+github: 'https://github.com/mrvblgn/ExcavaWin'
 tech:
-  - Node
-  - Javascript
+  - Python
+  - VirtualBox
 company: ''
 showInProjects: true
 ios: ''
 android: ''
 ---
 
-"Who wants to be a Millionaire? (JavaScript Edition)" Terminal Game that I made to practice my JavaScript skills.
+Bu projede Python kullanılarak socket tabanlı istemci–sunucu mimarisi ile çalışan bir uzaktan yönetim sistemi geliştirilmiştir.
+Sistem, ağ üzerinden bağlı istemcilerle haberleşerek komut gönderme, dosya transferi ve sistem bilgisi alma işlemlerini gerçekleştirmektedir.

@@ -8,7 +8,7 @@ tech:
   - Python
   - tkinter
 company: ''
-showInProjects: true
+showInProjects: false
 ios: ''
 android: ''
 ---

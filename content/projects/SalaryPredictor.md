@@ -1,18 +1,22 @@
 ---
 date: '2022-03-25'
-title: 'Salary Predictor'
-github: 'https://github.com/pycoder2000/Salary'
-external: 'https://salary-predictor-stream.herokuapp.com/'
+title: 'Coforob Mobile App'
+github: 'https://github.com/kodpilot-repos/cofoapp/tree/merve-dev'
+private: true
+gallery:
+  - '/coforobapp/1.jpg'
+  - '/coforobapp/2.jpg'
+  - '/coforobapp/3.jpg'
+  - '/coforobapp/4.jpg'
+  - '/coforobapp/5.jpg'
 tech:
-  - Python
-  - Streamlit
-  - Javascript
+  - React Native
+  - Google Maps API
+  - Typecript
 company: ''
 showInProjects: true
 ios: ''
 android: ''
 ---
 
-Salary Prediction App made with StreamLit just to practice the Streamlit framework
-
-A [Streamlit](https://streamlit.io/) demo [written in pure Python](https://github.com/pycoder2000/Salary/blob/main/app.py) to predict salary based on your years of experience.
+Gerçek kullanıcı akışlarına sahip, konum bazlı çalışan bir mobil uygulamadır. Kullanıcılar hesap oluşturarak giriş yapabilir, kahve menüsünü görüntüleyebilir, en yakın makineleri harita üzerinden bulabilir ve navigasyon ile yönlendirilebilir. Profil ve kullanıcı verileri API üzerinden yönetilmektedir.

@@ -5,7 +5,6 @@ cover: './InstantMD.png'
 github: 'https://github.com/kodpilot/NettechFront/tree/merve'
 external: 'https://nettech.kodpilot.com/'
 private: true
-#external: 'https://halcyon-theme.netlify.com/'
 tech:
   - Vue.js
   - Vuetify UI

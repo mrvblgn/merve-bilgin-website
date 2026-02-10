@@ -9,7 +9,7 @@ tech:
   - Flask
   - Scipy
 company: ''
-showInProjects: true
+showInProjects: false
 ios: ''
 android: ''
 ---

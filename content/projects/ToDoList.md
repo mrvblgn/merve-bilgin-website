@@ -1,25 +1,15 @@
 ---
 date: '2022-02-23'
-title: 'To Do List'
-github: 'https://github.com/pycoder2000/Todo-List'
-external: ''
+title: 'MuseAR'
+github: 'https://github.com/mrvblgn/MuseAR'
 tech:
-  - Django
-  - HTML
-  - CSS
-  - SQL
+  - Mindar
+  - React Native
+  - Firebase
 company: ''
 showInProjects: true
 ios: ''
 android: ''
 ---
 
-Clean and simple to-do list application made with Django framework.
-
-Features:
-
-- Easy add, delete and edit tasks
-- Reorder items
-- Login and register
-- Mark tasks as completed
-- Clean UI
+Müze içerisindeki eserlere telefon kamerasını doğrulttuğumuzda, görüntü işleme ile tanıyarak eser hakkında bilgileri AR teknolojisiyle gösteren bir mobil uygulama geliştirdim. Bu uygulama React Native kullanılarak oluşturuldu ve içeriklerin depolanması için Firebase kullanıldı.

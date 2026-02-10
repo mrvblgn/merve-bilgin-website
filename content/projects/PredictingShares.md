@@ -8,7 +8,7 @@ tech:
   - Machine Learning
   - LinearRegression
 company: ''
-showInProjects: true
+showInProjects: false
 ios: ''
 android: ''
 ---

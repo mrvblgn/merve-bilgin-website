@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -48,6 +49,10 @@ const StyledProject = styled.li`
   cursor: default;
   transition: var(--transition);
 
+  &.is-clickable {
+    cursor: pointer;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
@@ -93,6 +98,23 @@ const StyledProject = styled.li`
       align-items: center;
       margin-right: -10px;
       color: var(--light-slate);
+
+      .private-badge {
+        ${({ theme }) => theme.mixins.flexCenter};
+        gap: 6px;
+        padding: 6px 10px;
+        margin: 0 10px 0 0;
+        border-radius: 999px;
+        background-color: var(--navy);
+        color: var(--lightest-slate);
+        font-family: var(--font-mono);
+        font-size: var(--fz-xxs);
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
@@ -165,6 +187,81 @@ const StyledProject = styled.li`
   }
 `;
 
+const StyledImageModal = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(2, 12, 27, 0.85);
+  backdrop-filter: blur(6px);
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 0;
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: min(1000px, 92vw);
+    max-height: 85vh;
+    z-index: 1;
+  }
+
+  .modal-image {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .modal-close,
+  .modal-nav {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    background: var(--light-navy);
+    color: var(--lightest-slate);
+    font-size: 20px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .modal-close {
+    top: -12px;
+    right: -12px;
+  }
+
+  .modal-nav {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .modal-prev {
+    left: -18px;
+  }
+
+  .modal-next {
+    right: -18px;
+  }
+`;
+
 const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -182,6 +279,14 @@ const Projects = () => {
               tech
               github
               external
+              private
+              coverUrl
+              gallery
+              cover {
+                childImageSharp {
+                  gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
             html
           }
@@ -195,6 +300,7 @@ const Projects = () => {
   const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [activeGallery, setActiveGallery] = useState(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -206,14 +312,14 @@ const Projects = () => {
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
+  const GRID_LIMIT = 3;
   const projects = data.projects.edges.filter(({ node }) => node);
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
   const projectInner = node => {
     const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+    const { github, external, title, tech, private: isPrivate } = frontmatter;
 
     return (
       <div className="project-inner">
@@ -223,6 +329,12 @@ const Projects = () => {
               <Icon name="Folder" />
             </div>
             <div className="project-links">
+              {isPrivate && (
+                <span className="private-badge" aria-label="Private Repository">
+                  <Icon name="Lock" />
+                  Private Repo
+                </span>
+              )}
               {github && (
                 <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
                   <Icon name="GitHub" />
@@ -265,7 +377,7 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <h2 ref={revealTitle}>Diğer Önemli Projeler</h2>
 
       {/* <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
         view the archive
@@ -275,35 +387,169 @@ const Projects = () => {
         {prefersReducedMotion ? (
           <>
             {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <StyledProject key={i}>{projectInner(node)}</StyledProject>
-              ))}
+              projectsToShow.map(({ node }, i) => {
+                const { cover, coverUrl, gallery, title } = node.frontmatter;
+                const image = getImage(cover);
+                const coverSrc = image?.images?.fallback?.src || coverUrl;
+                const images =
+                  Array.isArray(gallery) && gallery.length ? gallery : coverSrc ? [coverSrc] : [];
+                const handleCardClick = e => {
+                  if (!images.length) {
+                    return;
+                  }
+
+                  const linkEl = e.target.closest('a');
+                  if (linkEl) {
+                    const href = linkEl.getAttribute('href');
+                    if (href && href !== '#') {
+                      return;
+                    }
+                  }
+
+                  setActiveGallery({ images, index: 0, alt: title });
+                };
+
+                const isClickable = images.length > 0;
+
+                return (
+                  <StyledProject
+                    key={i}
+                    onClick={isClickable ? handleCardClick : undefined}
+                    onKeyDown={
+                      isClickable
+                        ? e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleCardClick(e);
+                          }
+                        }
+                        : undefined
+                    }
+                    role={isClickable ? 'button' : undefined}
+                    tabIndex={isClickable ? 0 : undefined}
+                    className={isClickable ? 'is-clickable' : undefined}>
+                    {projectInner(node)}
+                  </StyledProject>
+                );
+              })}
           </>
         ) : (
           <TransitionGroup component={null}>
             {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}>
-                  <StyledProject
+              projectsToShow.map(({ node }, i) => {
+                const { cover, coverUrl, gallery, title } = node.frontmatter;
+                const image = getImage(cover);
+                const coverSrc = image?.images?.fallback?.src || coverUrl;
+                const images =
+                  Array.isArray(gallery) && gallery.length ? gallery : coverSrc ? [coverSrc] : [];
+                const handleCardClick = e => {
+                  if (!images.length) {
+                    return;
+                  }
+
+                  const linkEl = e.target.closest('a');
+                  if (linkEl) {
+                    const href = linkEl.getAttribute('href');
+                    if (href && href !== '#') {
+                      return;
+                    }
+                  }
+
+                  setActiveGallery({ images, index: 0, alt: title });
+                };
+
+                const isClickable = images.length > 0;
+
+                return (
+                  <CSSTransition
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
-                    style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
-                    }}>
-                    {projectInner(node)}
-                  </StyledProject>
-                </CSSTransition>
-              ))}
+                    classNames="fadeup"
+                    timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                    exit={false}>
+                    <StyledProject
+                      key={i}
+                      ref={el => (revealProjects.current[i] = el)}
+                      onClick={isClickable ? handleCardClick : undefined}
+                      onKeyDown={
+                        isClickable
+                          ? e => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              handleCardClick(e);
+                            }
+                          }
+                          : undefined
+                      }
+                      role={isClickable ? 'button' : undefined}
+                      tabIndex={isClickable ? 0 : undefined}
+                      className={isClickable ? 'is-clickable' : undefined}
+                      style={{
+                        transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      }}>
+                      {projectInner(node)}
+                    </StyledProject>
+                  </CSSTransition>
+                );
+              })}
           </TransitionGroup>
         )}
       </ul>
 
+      {activeGallery && (
+        <StyledImageModal role="dialog" aria-modal="true">
+          <button
+            type="button"
+            className="modal-backdrop"
+            aria-label="Close image"
+            onClick={() => setActiveGallery(null)}
+          />
+          <div className="modal-content">
+            <button
+              type="button"
+              className="modal-close"
+              aria-label="Close image"
+              onClick={() => setActiveGallery(null)}>
+              ×
+            </button>
+            {activeGallery.images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="modal-nav modal-prev"
+                  aria-label="Previous image"
+                  onClick={() =>
+                    setActiveGallery(current => ({
+                      ...current,
+                      index: current.index === 0 ? current.images.length - 1 : current.index - 1,
+                    }))
+                  }>
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="modal-nav modal-next"
+                  aria-label="Next image"
+                  onClick={() =>
+                    setActiveGallery(current => ({
+                      ...current,
+                      index: current.index === current.images.length - 1 ? 0 : current.index + 1,
+                    }))
+                  }>
+                  ›
+                </button>
+              </>
+            )}
+            <img
+              className="modal-image"
+              src={activeGallery.images[activeGallery.index]}
+              alt={activeGallery.alt}
+            />
+          </div>
+        </StyledImageModal>
+      )}
+
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
+        Daha {showMore ? 'Az' : 'Fazla'}
       </button>
     </StyledProjectsSection>
   );

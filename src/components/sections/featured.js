@@ -95,6 +95,7 @@ const StyledProject = styled.li`
     position: relative;
     grid-column: 1 / 7;
     grid-row: 1 / -1;
+    z-index: 2;
 
     @media (max-width: 1080px) {
       grid-column: 1 / 9;
@@ -151,6 +152,12 @@ const StyledProject = styled.li`
     }
   }
 
+  &.title-up {
+    .project-title {
+      transform: translateY(-22px);
+    }
+  }
+
   .project-description {
     ${({ theme }) => theme.mixins.boxShadow};
     position: relative;
@@ -196,6 +203,13 @@ const StyledProject = styled.li`
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
+    }
+
+    .line-break {
+      flex-basis: 100%;
+      height: 0;
+      margin: 0;
+      padding: 0;
     }
 
     @media (max-width: 768px) {
@@ -341,6 +355,7 @@ const Featured = () => {
               external
               cta
               private
+              customClass
             }
             html
           }
@@ -373,11 +388,24 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta, private: isPrivate } = frontmatter;
+            const {
+              external,
+              title,
+              tech,
+              github,
+              cover,
+              cta,
+              private: isPrivate,
+              customClass,
+            } = frontmatter;
             const image = getImage(cover);
+            const imageSrc = image?.images?.fallback?.src;
 
             return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <StyledProject
+                key={i}
+                ref={el => (revealProjects.current[i] = el)}
+                className={customClass || undefined}>
                 <div className="project-content">
                   <div>
                     {/* <p className="project-overline">Featured Project</p> */}
@@ -393,9 +421,13 @@ const Featured = () => {
 
                     {tech.length && (
                       <ul className="project-tech-list">
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
+                        {tech.map((tech, i) =>
+                          tech === '__BREAK__' ? (
+                            <li key={i} className="line-break" aria-hidden="true" />
+                          ) : (
+                            <li key={i}>{tech}</li>
+                          ),
+                        )}
                       </ul>
                     )}
 
@@ -426,7 +458,10 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+                  <a
+                    href={imageSrc || external || github || '#'}
+                    target={imageSrc ? '_blank' : undefined}
+                    rel={imageSrc ? 'noreferrer' : undefined}>
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>

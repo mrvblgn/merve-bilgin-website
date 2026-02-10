@@ -10,7 +10,7 @@ tech:
   - TfidfVectorizer
   - Python
 company: 'Nirma University'
-showInProjects: true
+showInProjects: false
 ios: ''
 android: ''
 ---

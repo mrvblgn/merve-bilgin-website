@@ -66,6 +66,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      cover: File @fileByRelativePath
+      coverUrl: String
+      gallery: [String]
+    }
+  `);
+};
+
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules

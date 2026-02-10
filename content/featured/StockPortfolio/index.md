@@ -1,15 +1,17 @@
 ---
 date: '3'
-title: 'Stock Portfolio Management'
+title: 'Bilgin Ingenieurbüro – Kurumsal Web Sitesi'
 cover: './HomePage.png'
-cta: 'https://github.com/pycoder2000/Stock-Management'
-external: ''
+github: 'https://github.com/mrvblgn/bilgin-ingenieur-website'
+external: 'https://www.bilgin-ingenieurbuero.de'
+cta: ''
+private: true
+customClass: 'title-up'
 tech:
-  - Django
-  - HTML
-  - Python
-  - CSS
-  - SQLite
+  - Next.js
+  - React
+  - Tailwind CSS
 ---
 
-It is a web application for managing your investment portfolio. Users can get real-time stock data and market news via Yahoo Finance, IEX Cloud, and Quandl APIs. They can also compare the performance of the stocks with charts and predict the future behaviour for the same. Users are given the ability to create a customizable stock portfolio and watchlist to track both current and prospective holdings. The application uses RESTful Web Services to pull live/historical stock data.
+Almanya merkezli bir mühendislik firması için geliştirilen kurumsal web sitesinin frontend geliştirmesi gerçekleştirilmiştir.
+Proje; çoklu dil desteği (Türkçe / Almanca), responsive tasarım ve SEO uyumlu sayfa yapıları içerecek şekilde kurgulanmıştır. Müşteri gereksinimlerine uygun olarak geliştirilen uygulama canlı ortama alınmıştır.

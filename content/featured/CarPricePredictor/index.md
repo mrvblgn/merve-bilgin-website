@@ -1,13 +1,14 @@
 ---
 date: '2'
 title: 'To-Do List – Full-Stack Görev Yönetim Sistemi'
-cover: './CarPricePrediction.png'
+cover: './demo.png'
 github: 'https://github.com/mrvblgn/todo-app'
 tech:
   - React
   - Laravel
   - JWT Authentication
   - REST API
+  - __BREAK__
   - MySQL
   - Tailwind
 ---

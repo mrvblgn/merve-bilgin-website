@@ -1,19 +1,18 @@
 ---
 date: '2022-03-12'
-title: 'Django Chat App'
-github: 'https://github.com/pycoder2000/djangochat'
-external: ''
+title: 'Blog Site'
+github: 'https://github.com/mrvblgn/BlogSite'
 tech:
-  - Django
-  - HTML
-  - CSS
-  - Channels
-  - Vanilla Javascript
-  - Web Sockets
+  - C#
+  - ASP.NET
+  - Entity Framework
+  - JWT
+  - MS SQL
 company: ''
 showInProjects: true
 ios: ''
 android: ''
 ---
 
-A small real time chat application built using Django. It also uses Channels and Vanilla Javascript with Web Sockets.
+Blog Site, katmanlı mimari ile geliştirilmiş, kullanıcıların gönderi oluşturup düzenleyebildiği bir içerik yönetim uygulamasıdır.
+Yetkilendirme, içerik yönetimi ve servis bazlı backend yapısı ile ölçeklenebilir bir mimari sunar.
