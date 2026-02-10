@@ -1,15 +1,17 @@
 ---
 date: '2'
-title: 'Car Price Predictor'
+title: 'To-Do List – Full-Stack Görev Yönetim Sistemi'
 cover: './CarPricePrediction.png'
-github: 'https://github.com/pycoder2000/Car-Price-Prediction'
-external: 'https://allysoncaragency.herokuapp.com/'
+github: 'https://github.com/mrvblgn/todo-app'
 tech:
-  - Python
-  - Scipy
-  - HTML
-  - Javascript
-  - Linear Regression
+  - React
+  - Laravel
+  - JWT Authentication
+  - REST API
+  - MySQL
+  - Tailwind
 ---
 
-The [Car Price Predictor](https://allysoncaragency.herokuapp.com/) is a web application which predicts car prices based on given independent features like Car Name, Year, Selling Price, Present Price, Kms Driven, Fuel Type etc. The dataset is available at [Kaggle](https://www.kaggle.com/code/mdejazulhassan/vehicle-dataset-from-cardekho/data), and it's provided by [cardekho.com](https://www.cardekho.com/). It is made using **Flask** and deployed on **Heroku**.
+React ve Laravel kullanılarak geliştirilmiş, JWT tabanlı kimlik doğrulama ve kullanıcıya özel veri erişimi içeren tam kapsamlı bir görev yönetim sistemidir.
+Kullanıcılar yalnızca kendi görevlerini oluşturabilir, görüntüleyebilir, güncelleyebilir ve silebilir. Sistem, güvenli oturum yönetimi ve rol bazlı yetkilendirme ile tasarlanmıştır.
+Frontend ve backend arasındaki iletişim RESTful API üzerinden sağlanmış; Laravel ile API servisleri, React ile modern ve kullanıcı odaklı arayüz geliştirilmiştir.

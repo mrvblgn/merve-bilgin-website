@@ -2,7 +2,9 @@
 date: '1'
 title: 'Nettech Admin Panel'
 cover: './InstantMD.png'
-github: 'https://github.com/pycoder2000/InstantMD'
+github: 'https://github.com/kodpilot/NettechFront/tree/merve'
+external: 'https://nettech.kodpilot.com/'
+private: true
 #external: 'https://halcyon-theme.netlify.com/'
 tech:
   - Vue.js
@@ -11,6 +13,8 @@ tech:
   - TypeScript
 ---
 
-**Instant MD is an Investigation, Medication and Chief complaint recognition application using Natural Language Processing.**
+**Nettech Admin Panel, canlı ortamda kullanılan, şirket içi operasyonların yönetildiği kurumsal bir web uygulamasıdır.**
 
-Being able to have machines understand unstructured textual content already plays a big part nowadays in our life. NLP can contribute largely to the advancement of medical science. NLP is used to extract information from free text narratives written by a variety of healthcare providers.
+Sistem; kullanıcı yönetimi, rol bazlı yetkilendirme, sipariş ve içerik yönetimi ile operasyonel ekranları içermektedir.
+Güvenli kimlik doğrulama altyapısı sayesinde farklı kullanıcı tipleri (admin, operasyon, destek) sisteme kontrollü şekilde erişebilmektedir.
+Frontend tarafında Vue.js kullanılarak modüler ve ölçeklenebilir bir arayüz geliştirilmiş, backend servislerle RESTful API üzerinden veri alışverişi sağlanmıştır. Gerçek zamanlı verilerle çalışan dashboard ve yönetim ekranları oluşturulmuştur.

@@ -216,6 +216,23 @@ const StyledProject = styled.li`
     margin-left: -10px;
     color: var(--lightest-slate);
 
+    .private-badge {
+      ${({ theme }) => theme.mixins.flexCenter};
+      gap: 6px;
+      padding: 6px 10px;
+      margin: 10px;
+      border-radius: 999px;
+      background-color: var(--light-navy);
+      color: var(--lightest-slate);
+      font-family: var(--font-mono);
+      font-size: var(--fz-xxs);
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     a {
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
@@ -323,6 +340,7 @@ const Featured = () => {
               github
               external
               cta
+              private
             }
             html
           }
@@ -355,7 +373,7 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const { external, title, tech, github, cover, cta, private: isPrivate } = frontmatter;
             const image = getImage(cover);
 
             return (
@@ -382,6 +400,12 @@ const Featured = () => {
                     )}
 
                     <div className="project-links">
+                      {isPrivate && (
+                        <span className="private-badge" aria-label="Private Repository">
+                          <Icon name="Lock" />
+                          Private Repo
+                        </span>
+                      )}
                       {cta && (
                         <a href={cta} aria-label="Course Link" className="cta">
                           Learn More
