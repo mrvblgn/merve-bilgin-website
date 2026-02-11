@@ -7,6 +7,8 @@ module.exports = {
       'Bilgisayar mühendisiyim ve yazılım geliştirme alanında çalışıyorum. Kendimi sürekli geliştirmeye ve yeni projeler üretmeye odaklanıyorum.',
     siteUrl: 'https://merve-bilgin.vercel.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '',
+    linkedinUrl: 'https://www.linkedin.com/in/merve-bilgin-203b16213',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

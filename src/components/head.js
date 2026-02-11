@@ -19,19 +19,15 @@ const Head = ({ title, description, image }) => {
             siteUrl
             defaultImage: image
             twitterUsername
+            linkedinUrl
           }
         }
       }
     `,
   );
 
-  const {
-    defaultTitle,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-  } = site.siteMetadata;
+  const { defaultTitle, defaultDescription, siteUrl, defaultImage, twitterUsername, linkedinUrl } =
+    site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
@@ -58,6 +54,8 @@ const Head = ({ title, description, image }) => {
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
+      {linkedinUrl ? <link rel="me" href={linkedinUrl} /> : null}
+      {linkedinUrl ? <meta property="og:see_also" content={linkedinUrl} /> : null}
       <meta name="google-site-verification" content="_Ba0lKk4Dl9XMvABJ9gZEtoMPITT5Vr5TGx2M-34Z_I" />
     </Helmet>
   );
