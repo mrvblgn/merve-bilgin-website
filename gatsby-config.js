@@ -4,10 +4,9 @@ module.exports = {
   siteMetadata: {
     title: 'Portfolio | Merve Bilgin',
     description:
-      'I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing.',
-    siteUrl: 'https://parthdesai.vercel.app', // No trailing slash allowed!
+      'Bilgisayar mühendisiyim ve yazılım geliştirme alanında çalışıyorum. Kendimi sürekli geliştirmeye ve yeni projeler üretmeye odaklanıyorum.',
+    siteUrl: 'https://merve-bilgin.vercel.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@lone_Musk',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'ParthDesai',
-        short_name: 'ParthDesai',
+        name: 'MerveBilgin',
+        short_name: 'MerveBilgin',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
