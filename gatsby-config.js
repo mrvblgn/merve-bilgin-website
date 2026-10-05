@@ -2,7 +2,7 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Portfolio | Merve Bilgin',
+    title: 'Portfolio | Merve Korkmaz',
     description:
       'Bilgisayar mühendisiyim ve yazılım geliştirme alanında çalışıyorum. Kendimi sürekli geliştirmeye ve yeni projeler üretmeye odaklanıyorum.',
     siteUrl: 'https://merve-bilgin.vercel.app', // No trailing slash allowed!
