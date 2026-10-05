@@ -1,5 +1,5 @@
 module.exports = {
-  email: '1mervebilgin@gmail.com',
+  email: 'mervekorkmaz.dev@gmail.com',
 
   socialMedia: [
     {
@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/merve-bilgin-203b16213/',
+      url: 'https://www.linkedin.com/in/merve-korkmaz-203b16213b16213/',
     },
   ],
 

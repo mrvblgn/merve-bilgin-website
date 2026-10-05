@@ -267,7 +267,7 @@ const Menu = () => {
             )}
 
             <a href="/resume.pdf" className="resume-link">
-              Öz geçmiş
+              Özgeçmişi Görüntüle
             </a>
           </nav>
         </StyledSidebar>

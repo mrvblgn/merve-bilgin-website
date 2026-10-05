@@ -39,9 +39,18 @@ const StyledHeroSection = styled.section`
     max-width: 540px;
   }
 
+  .cta-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .projects-link,
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
-    margin-top: 50px;
+    margin-top: 0;
   }
 `;
 
@@ -59,24 +68,24 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Merhaba, ben</h1>;
-  const two = <h2 className="big-heading">Merve Bilgin.</h2>;
-  const three = <h3 className="big-heading">Yazılım projelerinde aktif olarak kod yazıyorum.</h3>;
+  const two = <h2 className="big-heading">Merve Korkmaz.</h2>;
+  const three = <h3 className="big-heading">Full-stack web ve mobil uygulamalar geliştiriyorum.</h3>;
   const four = (
     <>
       <p>
-        Balıkesir Üniversitesi Bilgisayar Mühendisliği mezunuyum. Canlı ortamda kullanılan web
-        uygulamalarında frontend geliştirici olarak görev aldım. Vue.js ve React ile admin panelleri
-        ve kullanıcı arayüzleri geliştirdim; kullanıcı bazlı yetkilendirme, kimlik doğrulama
-        akışları ve API entegrasyonları gibi iş kritik özellikler üzerinde çalıştım. Ayrıca React
-        Native ile mobil uygulama geliştirme ve freelance olarak kurumsal web sitesi teslim etme
-        deneyimine sahibim.
+        Balıkesir Üniversitesi Bilgisayar Mühendisliği mezunuyum. Vue.js, React ve TypeScript ile kullanıcı odaklı web arayüzleri geliştiriyor; .NET Core ve Node.js ile API tabanlı uygulamalar oluşturuyorum. Profesyonel projelerde admin panelleri, dinamik formlar, rol bazlı ekranlar ve API entegrasyonları üzerinde çalıştım. Web projelerimin yanında React Native ile mobil uygulama geliştirme deneyimine de sahibim.
       </p>
     </>
   );
   const five = (
-    <a className="email-link" href="mailto:1mervebilgin@gmail.com" target="_blank" rel="noreferrer">
-      Benimle İletişime Geçin
-    </a>
+    <div className="cta-wrapper">
+      <a className="projects-link" href="/#projects">
+        Projelerimi İncele
+      </a>
+      <a className="email-link" href="mailto:mervekorkmaz.dev@gmail.com" target="_blank" rel="noreferrer">
+        Benimle İletişime Geçin
+      </a>
+    </div>
   );
 
   const items = [one, two, three, four, five];

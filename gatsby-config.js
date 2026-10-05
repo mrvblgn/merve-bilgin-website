@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: 'https://merve-bilgin.vercel.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
-    linkedinUrl: 'https://www.linkedin.com/in/merve-bilgin-203b16213',
+    linkedinUrl: 'https://www.linkedin.com/in/merve-korkmaz-203b16213/',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
