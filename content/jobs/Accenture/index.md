@@ -1,6 +1,6 @@
 ---
 date: '2022-01-14'
-title: 'Frontend Developer'
+title: 'Yazılım Mühendisi'
 company: 'Kodpilot'
 location: 'Bursa, Nilüfer'
 range: 'Haziran 2025 - Şubat 2026'

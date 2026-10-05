@@ -143,6 +143,62 @@ const StyledTabPanel = styled.div`
 
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+
+    li.tech-stack-item {
+      margin-top: 20px;
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    li.cert-item {
+      margin-top: 15px;
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .cert-button {
+    ${({ theme }) => theme.mixins.smallButton};
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .tech-stack-title {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    color: var(--lightest-slate);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .tech-stack-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tech-badge {
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    color: var(--green);
+    background-color: var(--light-navy);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(100, 255, 218, 0.25);
+    white-space: nowrap;
+    transition: var(--transition);
+
+    &:hover {
+      background-color: rgba(100, 255, 218, 0.1);
+    }
   }
 
   h3 {
@@ -163,6 +219,50 @@ const StyledTabPanel = styled.div`
     font-size: var(--fz-xs);
   }
 `;
+
+const processJobContent = htmlString => {
+  if (!htmlString) {return htmlString;}
+  let processed = htmlString
+    .replace(
+      /<li>\s*<strong>Kullanılan teknolojiler:?<\/strong>:?\s*(.*?)<\/li>/gi,
+      (match, rest) => {
+        const cleanText = rest
+          .replace(/<[^>]+>/g, '')
+          .replace(/\.$/, '')
+          .trim();
+        if (!cleanText) {return match;}
+        const techs = cleanText
+          .split(',')
+          .map(t => t.trim())
+          .filter(Boolean);
+        const badges = techs.map(t => `<span class="tech-badge">${t}</span>`).join('');
+        return `<li class="tech-stack-item"><span class="tech-stack-title">Kullanılan Teknolojiler:</span><div class="tech-stack-wrapper">${badges}</div></li>`;
+      },
+    )
+    .replace(
+      /<li>\s*<strong>Kullanılan teknolojiler:\s*(.*?)<\/strong>\s*<\/li>/gi,
+      (match, rest) => {
+        const cleanText = rest
+          .replace(/<[^>]+>/g, '')
+          .replace(/\.$/, '')
+          .trim();
+        if (!cleanText) {return match;}
+        const techs = cleanText
+          .split(',')
+          .map(t => t.trim())
+          .filter(Boolean);
+        const badges = techs.map(t => `<span class="tech-badge">${t}</span>`).join('');
+        return `<li class="tech-stack-item"><span class="tech-stack-title">Kullanılan Teknolojiler:</span><div class="tech-stack-wrapper">${badges}</div></li>`;
+      },
+    );
+
+  processed = processed.replace(
+    /<li>\s*<a href="([^"]+)"[^>]*>(.*?[sS]ertifika.*?)<\/a>\s*<\/li>/gi,
+    (match, url, text) => `<li class="cert-item"><a href="${url}" target="_blank" rel="noopener noreferrer" class="cert-button">${text}</a></li>`,
+  );
+
+  return processed;
+};
 
 const Jobs = () => {
   const data = useStaticQuery(graphql`
@@ -296,7 +396,7 @@ const Jobs = () => {
 
                     <p className="range">{range}</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <div dangerouslySetInnerHTML={{ __html: processJobContent(html) }} />
                   </StyledTabPanel>
                 </CSSTransition>
               );

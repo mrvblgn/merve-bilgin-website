@@ -69,11 +69,17 @@ const Hero = () => {
 
   const one = <h1>Merhaba, ben</h1>;
   const two = <h2 className="big-heading">Merve Korkmaz.</h2>;
-  const three = <h3 className="big-heading">Full-stack web ve mobil uygulamalar geliştiriyorum.</h3>;
+  const three = (
+    <h3 className="big-heading">Full-stack web ve mobil uygulamalar geliştiriyorum.</h3>
+  );
   const four = (
     <>
       <p>
-        Balıkesir Üniversitesi Bilgisayar Mühendisliği mezunuyum. Vue.js, React ve TypeScript ile kullanıcı odaklı web arayüzleri geliştiriyor; .NET Core ve Node.js ile API tabanlı uygulamalar oluşturuyorum. Profesyonel projelerde admin panelleri, dinamik formlar, rol bazlı ekranlar ve API entegrasyonları üzerinde çalıştım. Web projelerimin yanında React Native ile mobil uygulama geliştirme deneyimine de sahibim.
+        Balıkesir Üniversitesi Bilgisayar Mühendisliği mezunuyum. Vue.js, React ve TypeScript ile
+        kullanıcı odaklı web arayüzleri geliştiriyor; .NET Core ve Node.js ile API tabanlı
+        uygulamalar oluşturuyorum. Profesyonel projelerde admin panelleri, dinamik formlar, rol
+        bazlı ekranlar ve API entegrasyonları üzerinde çalıştım. Web projelerimin yanında React
+        Native ile mobil uygulama geliştirme deneyimine de sahibim.
       </p>
     </>
   );
@@ -82,8 +88,12 @@ const Hero = () => {
       <a className="projects-link" href="/#projects">
         Projelerimi İncele
       </a>
-      <a className="email-link" href="mailto:mervekorkmaz.dev@gmail.com" target="_blank" rel="noreferrer">
-        Benimle İletişime Geçin
+      <a
+        className="email-link"
+        href="mailto:mervekorkmaz.dev@gmail.com"
+        target="_blank"
+        rel="noreferrer">
+        Benimle İletişime Geç
       </a>
     </div>
   );

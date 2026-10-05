@@ -11,4 +11,4 @@ url: 'https://www.techcareer.net'
 - React kullanarak component tabanlı, kullanıcı dostu ve modern bir arayüz tasarımı gerçekleştirdik.
 - Proje sonunda, ekibimizle birlikte çalışmamızı YouTube canlı yayınında sunduk ve detaylarını paylaştık.
 - **Kullanılan teknolojiler: React.**
-- [Sertifika](https://verified.sertifier.com/tr/verify/17130612679511/)
+- [Sertifikayı Görüntüle](https://verified.sertifier.com/tr/verify/17130612679511/)

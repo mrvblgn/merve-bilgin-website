@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/merve-korkmaz-203b16213b16213/',
+      url: 'https://www.linkedin.com/in/merve-korkmaz-203b16213/',
     },
   ],
 

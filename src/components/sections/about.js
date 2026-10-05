@@ -19,21 +19,39 @@ const StyledAboutSection = styled.section`
   }
 `;
 const StyledText = styled.div`
-  ul.skills-list {
+  .skills-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .skill-category {
+    h4 {
+      margin: 0 0 10px 0;
+      color: var(--lightest-slate);
+      font-size: var(--fz-sm);
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+  }
+
+  ul.skills-list {
     padding: 0;
-    margin: 20px 0 0 0;
-    overflow: hidden;
+    margin: 0;
     list-style: none;
 
     li {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      color: var(--slate);
 
       &:before {
         content: '▹';
@@ -125,25 +143,41 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = [
-    'Vue.js',
-    'Next.js',
-    'React',
-    'React Native',
-    'Pinia',
-    'Redux',
-    'Restful API',
-    'PHP',
-    'Laravel',
-    'ASP.NET',
-    'Entity Framework',
-    'Katmanlı Mimari',
-    'Postman',
-    'MySQL',
-    'MS SQL',
-    'Unit Test',
-    'Git/Github',
-    'Jira',
+  const skillCategories = [
+    {
+      title: 'Frontend',
+      skills: [
+        'JavaScript, TypeScript',
+        'Vue.js, React, Next.js',
+        'Pinia, Zustand',
+        'HTML5, CSS3',
+        'Tailwind CSS, Vuetify',
+      ],
+    },
+    {
+      title: 'Backend',
+      skills: [
+        'C#, ASP.NET Core',
+        'Node.js, Express.js',
+        'PHP, Laravel',
+        'Entity Framework Core',
+        'REST API, JWT',
+        'Clean Architecture',
+      ],
+    },
+    {
+      title: 'Mobil ve Veritabanı',
+      skills: [
+        'React Native, Expo',
+        'Firebase, SQLite',
+        'PostgreSQL, MongoDB',
+        'SQL Server, MySQL',
+      ],
+    },
+    {
+      title: 'Araçlar',
+      skills: ['Git, GitHub', 'Postman, Swagger', 'Jira', 'Vercel, Render'],
+    },
   ];
 
   return (
@@ -154,38 +188,34 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              2024 yılında{' '}
-              <a href="https://ceng.balikesir.edu.tr" target="_blank" rel="noreferrer">
-                Balıkesir Üniversitesi Bilgisayar Mühendisliği
-              </a>{' '}
-              bölümünden mezun oldum. Lisans eğitimim süresince yazılım geliştirme temelleri üzerine
-              güçlü bir teorik altyapı edindim ve bu bilgileri proje bazlı çalışmalarla pratiğe
-              döktüm.
+              Bilgisayar mühendisliği mezunuyum. Vue.js, React ve TypeScript ile kullanıcı odaklı
+              web arayüzleri; ASP.NET Core ve Node.js ile API tabanlı full-stack uygulamalar
+              geliştiriyorum.
             </p>
 
             <p>
-              Mezuniyetim sonrasında toplam 480 saatlik yoğun bir yazılım geliştirme eğitim
-              programına katıldım. Bu süreçte C#, ASP.NET Core ve MVC ile backend geliştirme, JWT
-              ile kimlik doğrulama gibi konularda pratik yaparak deneyim kazandım. Ayrıca React ve
-              TypeScript ile kullanıcı dostu arayüzler geliştirme becerisi edindim. Bu eğitim
-              sayesinde hem frontend hem de backend tarafında üretken projeler geliştirebilecek
-              seviyeye ulaştım.
-            </p>
-
-            <p>
-              Canlı ortamda kullanılan yazılım projelerinde ekip içerisinde görev aldım. Bu
-              projelerde kullanıcı bazlı yetkilendirme, kimlik doğrulama akışları ve API
-              entegrasyonları gibi iş kritik alanlarda sorumluluk üstlendim. Bu deneyim sayesinde
-              üretim ortamında yazılım geliştirme, ekip içi iş akışları ve sürdürülebilir kod yazma
-              konularında pratik tecrübe kazandım.
+              Profesyonel projelerde Vue 3, Pinia ve Vuetify kullanarak admin panelleri, dinamik
+              formlar, rol bazlı ekranlar ve API entegrasyonları üzerinde çalıştım. Kişisel ve
+              teknik değerlendirme projelerimde ise React, .NET 8, Clean Architecture, JWT, Entity
+              Framework Core ve veritabanı teknolojileriyle uçtan uca uygulamalar geliştirdim. React
+              Native ile mobil uygulama geliştirme deneyimine de sahibim.
             </p>
 
             <p>Kullandığım teknolojiler:</p>
           </div>
 
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
+          <div className="skills-container">
+            {skillCategories.map((category, i) => (
+              <div className="skill-category" key={i}>
+                <h4>{category.title}</h4>
+                <ul className="skills-list">
+                  {category.skills.map((skill, j) => (
+                    <li key={j}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </StyledText>
 
         <StyledPic>
